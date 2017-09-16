@@ -7,7 +7,7 @@ public class Principal {
 		Pizza pizza1 = new Pizza();
 		pizza1.adcionarIngredientes("Calabresa");
 		pizza1.adcionarIngredientes("Bacon");
-		pizza1.adcionarIngredientes("Queijo");
+		pizza1.adcionarIngredientes("Milho");
 		
 		Pizza pizza2 = new Pizza();
 		pizza2.adcionarIngredientes("Peperone");
@@ -24,11 +24,13 @@ public class Principal {
 		pizza3.adcionarIngredientes("Palmito");
 		
 		CarrinhoDeCompras c1 = new CarrinhoDeCompras();
-		c1.CarrinhoDeCompra(pizza1);
-		c1.CarrinhoDeCompra(pizza2);
-		c1.CarrinhoDeCompra(pizza3);
+		// O Carrinho não pode aceitar que seja adicionada uma pizza sem ingredientes.
+		c1.addPizza(pizza1);
+		c1.addPizza(pizza3);
 		
+		int test = c1.TotalCarrinho();
 		
+		System.out.println("test " + test );	
 
 	}
 
