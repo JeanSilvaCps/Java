@@ -3,43 +3,69 @@ package Pizzaria;
 public class Principal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Pizza pizza1 = new Pizza();
-		pizza1.adcionarIngredientes("Calabresa");
-		pizza1.adcionarIngredientes("Bacon");
-		pizza1.adcionarIngredientes("Milho");
-		
-		Pizza pizza2 = new Pizza();
-		pizza2.adcionarIngredientes("Peperone");
-		pizza2.adcionarIngredientes("Catupiry");
-		pizza2.adcionarIngredientes("Tomate");
-		pizza2.adcionarIngredientes("Lombo");
-		
-		Pizza pizza3 = new Pizza();
-		pizza3.adcionarIngredientes("Frango");
-		pizza3.adcionarIngredientes("Bacon");
-		pizza3.adcionarIngredientes("Queijo");
-		pizza3.adcionarIngredientes("Milho");
-		pizza3.adcionarIngredientes("Ervilha");
-		pizza3.adcionarIngredientes("Palmito");
-		
-		CarrinhoDeCompras c1 = new CarrinhoDeCompras();
-		// O Carrinho não pode aceitar que seja adicionada uma pizza sem ingredientes.
-		c1.addPizza(pizza1);
-		c1.addPizza(pizza3);
-		
-		int test = c1.TotalCarrinho();
-		
-		System.out.println("test " + test );	
 
-	}
-
+		CarrinhoDeCompras c1 = new CarrinhoDeCompras();		
+		
+		Pizza italiana = new Pizza();
+		
+			italiana.adcionarIngredientes("Calabresa");
+			italiana.adcionarIngredientes("Bacon");
+			italiana.adcionarIngredientes("Milho");
+			
+		if( validacao(italiana) ){
+			c1.addPizza(italiana);
+		}
+		else{
+			System.out.println("Pizza Italiana não inserida no carrinho");
+		}
+		
+		
+		Pizza vegegran = new Pizza();
+		
+			vegegran.adcionarIngredientes("Peperone");
+			vegegran.adcionarIngredientes("Catupiry");
+			vegegran.adcionarIngredientes("Tomate");
+			vegegran.adcionarIngredientes("Lombo");
+			vegegran.adcionarIngredientes("Milho");
+			
+		if( validacao(vegegran) ){
+			c1.addPizza(vegegran);
+		}
+		else{
+			System.out.println("Pizza Vegegran não inserida no carrinho");
+		}
+	
+		Pizza especial = new Pizza();
+		
+			especial.adcionarIngredientes("Frango");
+			especial.adcionarIngredientes("Bacon");
+			especial.adcionarIngredientes("Queijo");
+			especial.adcionarIngredientes("Milho");
+			especial.adcionarIngredientes("Ervilha");
+			especial.adcionarIngredientes("Palmito");
+			
+		if( validacao(especial) ){
+			c1.addPizza(especial);
+		}
+		else{
+			System.out.println("Pizza Especial não inserida no carrinho");
+		}
+		
+		int total = c1.TotalCarrinho();
+		
+		System.out.println("Total do carrinho: R$ " + total + ",00");
+		System.out.println("");
+		
+		imprimirIngredientes();	
+	
+		}
+		
+		private static boolean validacao(Pizza p){
+			return p.getTotalIngredientes() >= 1 ? true : false;
+		}
+		
+		private static void imprimirIngredientes(){
+			Pizza procurar = new Pizza();
+			procurar.estaFuncionandoLista();
+		}
 }
-/*
- *Crie uma classe Principal com o método main() que faz o seguinte:
- *
- *Cria 3 pizzas com ingredientes diferentes
- *Adiciona essas Pizzas em um CarrinhoDeCompra
- *Imprime o total do CarrinhoDeCompra
- *Imprime a quantidade utilizada de cada ingrediente
- */
